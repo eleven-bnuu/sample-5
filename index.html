@@ -1,0 +1,93 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Wedding Invitation
+  </title>
+      <link rel="icon" href="./img/favicon.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+   body {
+      
+.font-cormorant {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.font-quicksand {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+.text-susu {
+  color: #bf9b67;
+}
+.text-gelap {
+  color: #5e2303;
+}
+.text-cerah {
+  color: #f2e7dd;
+}
+.bg-gelap {
+  background-color: #5e2303;
+}
+.bg-susu {
+  background-color: #bf9b67;
+}
+.bg-cerah {
+  background-color: #f2e7dd;
+}
+    }
+  </style>
+ </head>
+ <body class="relative min-h-screen flex flex-col justify-between items-center text-center bg-[#5e2303] overflow-hidden">
+  <!-- Background -->
+  <img src="./img/bg.jpg" alt="Background"
+       class="absolute inset-0 w-full h-full object-cover" />
+
+  <!-- Atas -->
+  <div class="relative z-10 pt-3">
+    <p class="font-quicksand text-susu text-lg">Wedding Invitation</p>
+  </div>
+
+
+  <!-- Tengah -->
+  <div class="relative z-10 flex flex-col items-center justify-center">
+    <h2 class="font-cormorant text-susu text-4xl font-bold bg-[#5e2303] px-10 py-2">
+      SIS &amp; BRO
+    </h2>
+  </div>
+
+  <!-- Bawah -->
+  <div class="relative z-10 mb-10 flex flex-col items-center">
+    <p class="text-susu text-base mb-2 font-quicksand">
+      Kepada Yth. Bapak/Ibu/Saudara/i
+    </p>
+<h3 id="penerima" class="text-3xl font-cormorant text-susu mb-3"></h3>
+    <a href="home.html">
+    <button class="bg-[#bf9b67] text-gelap rounded-full px-8 py-2 mb-4 text-lg font-quicksand shadow-md">
+      Buka Undangan
+    </button>
+    </a>
+  </div>
+  
+  <script>
+      // Ambil parameter dari URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const nama = urlParams.get('to'); // baca nilai ?to=
+  
+      // Kalau ada nama → tampilkan di <h3>
+      if (nama) {
+        document.getElementById("penerima").innerText = nama;
+      }
+    </script>
+</body>
+</html>

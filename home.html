@@ -1,0 +1,420 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Wedding Invitation
+  </title>
+      <link rel="icon" href="./img/favicon.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+   body {
+      
+.font-cormorant {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.font-quicksand {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+.text-susu {
+  color: #bf9b67;
+}
+.text-gelap {
+  color: #5e2303;
+}
+.text-cerah {
+  color: #e7d5bc;
+}
+.bg-gelap {
+  background-color: #5e2303;
+}
+.bg-susu {
+  background-color: #bf9b67;
+}
+.bg-cerah {
+  background-color: #e7d5bc;
+}
+    }
+    
+    @keyframes carousel {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-carousel {
+  width: 200%; /* karena isi dobel */
+  animation: carousel 20s linear infinite;
+}
+  /* Animasi muter */
+  .spin {
+    animation: spin 4s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  </style>
+ </head>
+ <body>
+              <section class="relative min-h-screen flex items-center justify-center text-center px-4">
+          <!-- Background Video -->
+          <video autoplay muted loop playsinline 
+                 class="absolute inset-0 w-full h-full object-cover brightness-10">
+            <source src="./video/bgv.mp4" type="video/mp4" />
+            Browser tidak support video
+          </video>
+          <div class="absolute inset-0 bg-black/50"></div>
+        
+          <!-- Overlay Content -->
+          <div class="relative z-10 flex flex-col h-full items-center justify-center p-6 reveal zoom-in opacity-0 scale-95 transition-all duration-1000">
+            <!-- gambar ornamen-->
+            <img class="w-32 h-32" src="./img/or1.png">
+            <!-- teks -->
+            <p class="text-center font-quicksand text-susu text-lg">The Wedding Of</p>
+            <!-- nama -->
+            <h2 class="text-center text-5xl text-susu font-cormorant">Bro &amp; Sis</h2>
+            <!-- tanggal -->
+            <p class="text-susu text-center text-sm font-quicksand mb-4">9 September 2029</p>
+            <!-- countdown -->
+            <div id="countdown" class="flex gap-3 text-white font-quicksand text-base font-semibold mb-7">
+            <div class="flex flex-col items-center px-2 py-1 border-2 border-[#bf9b67] rounded-xl shadow-md">
+              <span id="days" class="font-cormorant text-susu text-3xl">00</span>
+              <span class="text-xs text-susu mt-1">Hari</span>
+            </div>
+            <div class="flex flex-col items-center px-2 py-1 border-2 border-[#bf9b67] rounded-xl shadow-md">
+              <span id="hours" class="font-cormorant text-susu text-3xl">00</span>
+              <span class="text-xs text-susu mt-1">Jam</span>
+            </div>
+            <div class="flex flex-col items-center px-2 py-1 border-2 border-[#bf9b67] rounded-xl shadow-md">
+              <span id="minutes" class="text-3xl text-susu font-cormorant">00</span>
+              <span class="text-xs text-susu mt-1">Menit</span>
+            </div>
+            <div class="flex flex-col items-center px-2 py-1 border-2 border-[#bf9b67] rounded-xl shadow-md">
+              <span id="seconds" class="font-cormorant text-susu text-3xl">00</span>
+              <span class="text-xs text-susu mt-1">Detik</span>
+            </div>
+          </div>
+          <!-- button -->
+           <a href="https://calendar.google.com/calendar/render?action=TEMPLATE
+              &text=Judul+Acara
+              &dates=YYYYMMDDTHHmmssZ/YYYYMMDDTHHmmssZ
+              &details=Deskripsi+Acara
+              &location=Lokasi+Acara
+
+          ">
+          <button class="bg-[#bf9b67] text-gelap rounded-full px-8 py-2 text-lg font-quicksand shadow-md">
+            save the date
+          </button>
+          </a>
+          </div>
+        </section>
+        <section id="bates" class="bg-susu pt-10">
+              <div class="w-full h-40 bg-[#e7d5bc] rounded-t-[100%] flex items-center justify-center">
+              <img src="./img/bismilah.png" class="h-20 reveal fade-in opacity-0 transition-opacity duration-1000" alt="bismilah">
+            </div>
+
+        </section>
+        
+        <div id="mempelai"></div>
+        <div id="qoutes"></div>
+        <div id="acara"></div>
+        <div id="story"></div>
+        <div id="gallery"></div>
+        <div id="closing"></div>
+        
+        <!-- RSVP -->
+    <section id="rsvp" class="bg-[#e7d5bc] py-9">
+        <div class="grid grid-cols-3 gap-4 text-center mb-8 mx-4 reveal slide-up opacity-0 translate-y-10 transition-all duration-1000">
+      <div class="bg-susu p-4 rounded-lg shadow">
+        <h3 class="text-5xl font-cormorant text-gelap" id="countHadir">0</h3>
+        <p class="font-quicksand text-cerah text-sm">Hadir</p>
+      </div>
+      <div class="bg-susu p-4 rounded-lg shadow">
+        <h3 class="text-5xl font-cormorant text-gelap" id="countTidak">0</h3>
+        <p class="font-quicksand text-cerah text-sm">Tidak Hadir</p>
+      </div>
+      <div class="bg-susu p-4 rounded-lg shadow">
+        <h3 class="text-5xl font-cormorant text-gelap" id="countRagu">0</h3>
+        <p class="text-cerah font-quicksand text-sm">Ragu</p>
+      </div>
+    </div>
+        
+           <!-- Form RSVP -->
+    <div class="bg-susu p-6 rounded-2xl shadow-lg mb-8 mx-4 reveal slide-up opacity-0 translate-y-10 transition-all duration-1000">
+      <form id="rsvpForm" class="space-y-4">
+        <input type="text" id="nama" placeholder="Nama" required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5e2303] font-quicksand">
+
+        <select id="status" required
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-['5e2303'] font-quicksand">
+          <option value="" disabled selected>Konfirmasi Kehadiran</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+          <option value="Ragu">Ragu</option>
+        </select>
+
+        <textarea id="ucapan" placeholder="Tulis ucapan..." rows="3"
+          class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5e2303] font-quicksand"></textarea>
+
+        <button type="submit"
+          class="w-full bg-[#5e2303] text-susu py-2 rounded-lg hover:bg-[#e7d5bc] font-quicksand transition">
+          Kirim
+        </button>
+      </form>
+    </div>
+
+    <!-- List Ucapan -->
+    <div class="bg-susu p-6 rounded-2xl shadow-lg mx-4 reveal slide-up opacity-0 translate-y-10 transition-all duration-1000">
+      <h3 class="text-xl font-cormorant mb-4 text-gelap text-center">Ucapan &amp; Doa</h3>
+      <div id="listUcapan" class="space-y-4">
+        <!-- Data ucapan dari Firebase muncul di sini -->
+      </div>
+    </div>
+    </section>
+    
+    <div id="footer"></div>
+    
+    <!-- script rsvp -->
+    
+    <script type="module">
+  // Import Firebase SDK
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+  // Config project lu (yang udah lu dapet tadi)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDhNh_z7m3lZHWehew7YSn3Amcc3ix6oX4",
+    authDomain: "undangan-kode-5.firebaseapp.com",
+    projectId: "undangan-kode-5",
+    storageBucket: "undangan-kode-5.firebasestorage.app",
+    messagingSenderId: "945522359942",
+    appId: "1:945522359942:web:edf760b32b56ecea3d5b07",
+    measurementId: "G-8HL9J90LE5"
+  };
+
+  // Init Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Variabel counter
+  let countHadir = 0, countTidak = 0, countRagu = 0;
+
+  // diubah sesuai klien
+  const rsvpRef = collection(db, "rsvp");
+
+  // Ambil elemen dari HTML
+  const form = document.getElementById("rsvpForm");
+  const listUcapan = document.getElementById("listUcapan");
+  const elHadir = document.getElementById("countHadir");
+  const elTidak = document.getElementById("countTidak");
+  const elRagu = document.getElementById("countRagu");
+
+  // Event submit form
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value.trim();
+    const status = document.getElementById("status").value;
+    const ucapan = document.getElementById("ucapan").value.trim();
+
+    if (!nama || !status) {
+      alert("Nama dan status wajib diisi!");
+      return;
+    }
+
+    try {
+      await addDoc(rsvpRef, {
+        nama,
+        status,
+        ucapan,
+        timestamp: Date.now()
+      });
+      form.reset();
+    } catch (err) {
+      console.error("Error simpan ke Firestore:", err);
+    }
+  });
+
+  // Listener realtime buat update counter & list ucapan
+  onSnapshot(rsvpRef, (snapshot) => {
+    // Reset counter & list
+    countHadir = 0; countTidak = 0; countRagu = 0;
+    listUcapan.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+
+      // Hitung status
+      if (data.status === "Hadir") countHadir++;
+      if (data.status === "Tidak Hadir") countTidak++;
+      if (data.status === "Ragu") countRagu++;
+
+      // Tambahin ke list ucapan
+      const div = document.createElement("div");
+      div.className = "p-3 border rounded-lg shadow-sm bg-[#e7d5bc] text-left font-quicksand";
+      div.innerHTML = `
+        <p class="font-semibold text-gelap">${data.nama} <span class="text-sm text-gray-600">(${data.status})</span></p>
+        <p class="text-gray-800">${data.ucapan || "<i>(Tidak ada ucapan)</i>"}</p>
+      `;
+      listUcapan.prepend(div);
+    });
+
+    // Update counter di UI
+    elHadir.textContent = countHadir;
+    elTidak.textContent = countTidak;
+    elRagu.textContent = countRagu;
+  });
+</script>
+ <script>
+  
+  // Set tanggal target countdown (format: Tahun, Bulan-1, Tanggal, Jam, Menit, Detik)
+  // Ingat bulan dimulai dari 0 = Januari, jadi kalau Agustus pakai 7
+  const targetDate = new Date(2029, 8, 9, 8, 0, 0).getTime(); // 30 Agustus 2025 jam 08:00
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Hitung waktu
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Tampilkan ke elemen
+    document.getElementById("days").innerText = days.toString().padStart(2, '0');
+    document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+    // Kalau waktu habis
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.getElementById("countdown").innerHTML = "<span class='text-xl font-bold text-white'>Acara dimulai 🎉</span>";
+    }
+  }, 1000);
+  
+  
+  //animasi
+  // Buat observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+
+      // Slide dari kiri
+      if (el.classList.contains("slide-left")) {
+        el.classList.remove("opacity-0", "-translate-x-10");
+        el.classList.add("opacity-100", "translate-x-0");
+      }
+
+      // Slide dari kanan
+      if (el.classList.contains("slide-right")) {
+        el.classList.remove("opacity-0", "translate-x-10");
+        el.classList.add("opacity-100", "translate-x-0");
+      }
+      
+      // slide-down
+if (el.classList.contains("slide-down")) {
+  el.classList.remove("opacity-0", "-translate-y-10");
+  el.classList.add("opacity-100", "translate-y-0");
+}
+
+
+      // Slide dari bawah
+      if (el.classList.contains("slide-up")) {
+        el.classList.remove("opacity-0", "translate-y-10");
+        el.classList.add("opacity-100", "translate-y-0");
+      }
+
+      // Fade in
+      if (el.classList.contains("fade-in")) {
+        el.classList.remove("opacity-0");
+        el.classList.add("opacity-100");
+      }
+
+      // Zoom in
+      if (el.classList.contains("zoom-in")) {
+        el.classList.remove("opacity-0", "scale-95");
+        el.classList.add("opacity-100", "scale-100");
+      }
+
+      // Kalau sudah kelihatan, stop observe biar ga diulang
+      observer.unobserve(el);
+    }
+  });
+});
+
+// Observe semua elemen dengan class .reveal
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+  
+    //panggil section
+  function loadSection(id, url) {
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Gagal load " + url);
+      }
+      return response.text();
+    })
+    .then(data => {
+      const container = document.getElementById(id);
+      container.innerHTML = data;
+
+      // Re-observe elemen baru yang ada .reveal
+      container.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+}
+
+  // panggil section
+  loadSection("mempelai", "./mempelai.html");
+  loadSection("qoutes", "./qoutes.html")
+  loadSection("acara", "./acara.html");
+  loadSection("story", "./story.html");
+  loadSection("gallery", "./gallery.html");
+  loadSection("closing", "./closing.html");
+  loadSection("footer", "./footer.html");
+  
+  //musik
+  window.addEventListener("DOMContentLoaded", () => {
+            const music = document.getElementById("bg-music");
+        
+            // coba autoplay
+            music.play().catch(() => {
+              console.log("Autoplay diblokir, munculin popup manual");
+        
+              // bikin popup kecil
+              const popup = document.createElement("div");
+              popup.innerHTML = `
+                <div class="fixed bottom-4 right-4 bg-[#56001d] text-[#56001d] px-4 py-2 rounded-full shadow-lg flex items-center gap-2 cursor-pointer animate-bounce">
+                  🎵
+                </div>
+              `;
+              
+              popup.onclick = () => {
+                music.play();
+                popup.remove(); // ilangin popup setelah musik nyala
+              };
+        
+              document.body.appendChild(popup);
+            });
+          });
+</script>
+
+ </body>
+ </html>
